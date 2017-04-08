@@ -3,3 +3,12 @@ main: BlawoHD\SkyWarsPE
 api: [3.0.0-ALPHA4]
 version: 1.0.0
 author: BlawoHD
+commands:
+    Skywars:
+        description: "SW Main Command"
+        aliases: [sw]
+    kit:
+        description: "SW Kit Command"
+        aliases: [k]
+    kits:
+        description: "SW Kits Command"
