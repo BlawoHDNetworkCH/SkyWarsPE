@@ -1,0 +1,40 @@
+language: php
+
+php:
+ - 7.0.15
+
+branches:
+ - master
+
+before_script:
+ - cd /home/travis/build/
+ - phpenv config-rm xdebug.ini
+ - pecl install channel://pecl.php.net/pthreads-3.1.6
+ - pecl install channel://pecl.php.net/weakref-0.3.2
+ - echo | pecl install channel://pecl.php.net/yaml-2.0.0
+ - git clone --recursive --depth=50 --branch=master https://github.com/TesseractTeam/Tesseract.git
+ - mkdir -p PocketMine-MP/plugins/BossBarTitle-src
+ - cp -rf BlawoHDNetworkCH/SkyWarsPE/src PocketMine-MP/plugins/SkyWarsPE-src
+ - cp -rf BlawoHDNetworkCH/SkyWarsPE/resources PocketMine-MP/plugins/SkyWarsPE-src
+ - cp -rf BlawoHDNetworkCH/SkyWarsPE/plugin.yml PocketMine-MP/plugins/SkyWarsPE-src
+ - cp -rf BlawoHDNetworkCH/SkyWarsPE/LICENSE PocketMine-MP/plugins/SkyWarsPE-src
+ - cp -rf BlawoHDNetworkCH/SkyWarsPE/build.php PocketMine-MP/
+ - git clone https://github.com/pmmp/PocketMine-DevTools.git
+ - cp BlawoHDNetworkCH/SkyWarsPE/compiledependancies.php /home/travis/build/
+ - php compiledependancies.php
+ - cd PocketMine-MP/
+
+
+script:
+ - php build.php
+
+deploy:
+  provider: releases
+  api_key: "$api_key"
+  file: "/home/travis/build/PocketMine-MP/plugins/DevTools/SkyWarsPE.phar"
+  skip_cleanup: true
+  overwrite: true
+  on:
+    tags: true 
+notifications:
+ email: false 
