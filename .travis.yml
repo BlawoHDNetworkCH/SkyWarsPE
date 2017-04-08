@@ -15,7 +15,6 @@ before_script:
  - git clone --recursive --depth=50 --branch=master https://github.com/pmmp/Pocketmine-MP.git
  - mkdir -p PocketMine-MP/plugins/SkyWarsPE-src
  - cp -rf BlawoHDNetworkCH/SkyWarsPE/src PocketMine-MP/plugins/SkyWarsPE-src
- - cp -rf BlawoHDNetworkCH/SkyWarsPE/resources PocketMine-MP/plugins/SkyWarsPE-src
  - cp -rf BlawoHDNetworkCH/SkyWarsPE/plugin.yml PocketMine-MP/plugins/SkyWarsPE-src
  - cp -rf BlawoHDNetworkCH/SkyWarsPE/LICENSE PocketMine-MP/plugins/SkyWarsPE-src
  - git clone https://github.com/pmmp/PocketMine-DevTools.git
