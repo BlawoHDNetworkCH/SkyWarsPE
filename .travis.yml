@@ -24,10 +24,6 @@ before_script:
  - php compiledependancies.php
  - cd PocketMine-MP/
 
-
-script:
- - php build.php
-
 deploy:
   provider: releases
   api_key: "$api_key"
